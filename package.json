@@ -1,0 +1,32 @@
+{
+  "name": "clear-agent-output",
+  "version": "1.0.0",
+  "description": "Install a skill that makes AI agent replies short, clear, complete, and actionable.",
+  "license": "MIT",
+  "author": "majicmaj",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/majicmaj/clear-agent-output.git"
+  },
+  "homepage": "https://github.com/majicmaj/clear-agent-output#readme",
+  "bugs": "https://github.com/majicmaj/clear-agent-output/issues",
+  "keywords": [
+    "agent-skill",
+    "codex",
+    "plain-language",
+    "adhd",
+    "accessibility"
+  ],
+  "bin": {
+    "clear-agent-output": "bin/install.js"
+  },
+  "files": [
+    "bin",
+    "skill",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  }
+}
