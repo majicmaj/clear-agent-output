@@ -1,0 +1,340 @@
+{
+  "schema_version": 1,
+  "model": "gpt-5.6-terra",
+  "repetitions": 1,
+  "started_at": "2026-08-12T15:21:21.322Z",
+  "completed_at": "2026-08-12T15:22:15.242Z",
+  "method": "Fresh Codex exec thread per case and arm; reasoning effort none; final user-facing text scored.",
+  "results": [
+    {
+      "id": "completed-work",
+      "title": "Completed work with one skipped check",
+      "arm": "baseline",
+      "output": "The cache-key issue has been fixed in `src/cache.ts` and `src/api.ts`.\n\nAll 42 unit tests and linting completed successfully. Browser verification could not run because Chrome isn’t installed.\n\nNo action is needed from you.",
+      "usage": {
+        "input_tokens": 13029,
+        "cached_input_tokens": 12032,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 52,
+        "reasoning_output_tokens": 0
+      },
+      "metrics": {
+        "words": 38,
+        "characters": 223,
+        "sentences": 4,
+        "sentences_over_20_words": 0,
+        "max_sentence_words": 14,
+        "jargon_hits": [],
+        "required_facts": [
+          {
+            "label": "both files",
+            "passed": true
+          },
+          {
+            "label": "42 tests passed",
+            "passed": true
+          },
+          {
+            "label": "lint passed",
+            "passed": true
+          },
+          {
+            "label": "browser check skipped",
+            "passed": true
+          },
+          {
+            "label": "Chrome cause",
+            "passed": false
+          },
+          {
+            "label": "no user action",
+            "passed": true
+          }
+        ],
+        "facts_kept": 5,
+        "facts_total": 6,
+        "next_label_expected": false,
+        "next_label_present": false,
+        "next_label_correct": true
+      }
+    },
+    {
+      "id": "completed-work",
+      "title": "Completed work with one skipped check",
+      "arm": "skill",
+      "output": "Fixed the cache-key defect in `src/cache.ts` and `src/api.ts`.\n\n- All 42 unit tests passed.\n- Linting passed.\n- Browser verification was not run because Chrome is not installed.\n\nNo action is required.",
+      "usage": {
+        "input_tokens": 13698,
+        "cached_input_tokens": 12032,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 52,
+        "reasoning_output_tokens": 0
+      },
+      "metrics": {
+        "words": 33,
+        "characters": 201,
+        "sentences": 5,
+        "sentences_over_20_words": 0,
+        "max_sentence_words": 12,
+        "jargon_hits": [],
+        "required_facts": [
+          {
+            "label": "both files",
+            "passed": true
+          },
+          {
+            "label": "42 tests passed",
+            "passed": true
+          },
+          {
+            "label": "lint passed",
+            "passed": true
+          },
+          {
+            "label": "browser check skipped",
+            "passed": true
+          },
+          {
+            "label": "Chrome cause",
+            "passed": true
+          },
+          {
+            "label": "no user action",
+            "passed": true
+          }
+        ],
+        "facts_kept": 6,
+        "facts_total": 6,
+        "next_label_expected": false,
+        "next_label_present": false,
+        "next_label_correct": true
+      }
+    },
+    {
+      "id": "blocked-deploy",
+      "title": "Blocked deployment with one required action",
+      "arm": "baseline",
+      "output": "The deployment was not initiated because the AWS session expired. The local production build completed successfully, and no production files or services were modified.\n\nPlease run:\n\n```bash\naws sso login --profile billing-prod\n```\n\nLet me know when authentication finishes.",
+      "usage": {
+        "input_tokens": 13026,
+        "cached_input_tokens": 12032,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 55,
+        "reasoning_output_tokens": 0
+      },
+      "metrics": {
+        "words": 38,
+        "characters": 273,
+        "sentences": 3,
+        "sentences_over_20_words": 0,
+        "max_sentence_words": 14,
+        "jargon_hits": [],
+        "required_facts": [
+          {
+            "label": "deployment did not happen",
+            "passed": true
+          },
+          {
+            "label": "expired AWS session",
+            "passed": true
+          },
+          {
+            "label": "local build passed",
+            "passed": true
+          },
+          {
+            "label": "production unchanged",
+            "passed": true
+          },
+          {
+            "label": "exact login command",
+            "passed": true
+          },
+          {
+            "label": "report completion",
+            "passed": true
+          }
+        ],
+        "facts_kept": 6,
+        "facts_total": 6,
+        "next_label_expected": true,
+        "next_label_present": false,
+        "next_label_correct": false
+      }
+    },
+    {
+      "id": "blocked-deploy",
+      "title": "Blocked deployment with one required action",
+      "arm": "skill",
+      "output": "Deployment did not start because the AWS session expired.\n\nThe local production build completed successfully. No production files or services were changed.\n\nNext: Run `aws sso login --profile billing-prod` and tell me when authentication finishes.",
+      "usage": {
+        "input_tokens": 13487,
+        "cached_input_tokens": 9984,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 49,
+        "reasoning_output_tokens": 0
+      },
+      "metrics": {
+        "words": 35,
+        "characters": 247,
+        "sentences": 4,
+        "sentences_over_20_words": 0,
+        "max_sentence_words": 13,
+        "jargon_hits": [],
+        "required_facts": [
+          {
+            "label": "deployment did not happen",
+            "passed": true
+          },
+          {
+            "label": "expired AWS session",
+            "passed": true
+          },
+          {
+            "label": "local build passed",
+            "passed": true
+          },
+          {
+            "label": "production unchanged",
+            "passed": true
+          },
+          {
+            "label": "exact login command",
+            "passed": true
+          },
+          {
+            "label": "report completion",
+            "passed": true
+          }
+        ],
+        "facts_kept": 6,
+        "facts_total": 6,
+        "next_label_expected": true,
+        "next_label_present": true,
+        "next_label_correct": true
+      }
+    },
+    {
+      "id": "queue-choice",
+      "title": "Recommendation with measurable limits",
+      "arm": "baseline",
+      "output": "Use a PostgreSQL-backed queue for the service today. PostgreSQL is already running, so this avoids adding another service and is sufficient for the current workload.\n\nRedis can provide lower latency and more queue features, but it adds operational overhead. Re-evaluate Redis if measured queue delay exceeds 500 ms or throughput exceeds 1,000 jobs per second.",
+      "usage": {
+        "input_tokens": 13052,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 74,
+        "reasoning_output_tokens": 0
+      },
+      "metrics": {
+        "words": 56,
+        "characters": 359,
+        "sentences": 4,
+        "sentences_over_20_words": 0,
+        "max_sentence_words": 17,
+        "jargon_hits": [
+          {
+            "term": "sufficient",
+            "simpler": "enough"
+          }
+        ],
+        "required_facts": [
+          {
+            "label": "PostgreSQL recommendation",
+            "passed": true
+          },
+          {
+            "label": "no new service",
+            "passed": true
+          },
+          {
+            "label": "current load",
+            "passed": false
+          },
+          {
+            "label": "Redis benefits",
+            "passed": true
+          },
+          {
+            "label": "operations cost",
+            "passed": true
+          },
+          {
+            "label": "500 ms limit",
+            "passed": true
+          },
+          {
+            "label": "1,000 jobs limit",
+            "passed": true
+          }
+        ],
+        "facts_kept": 6,
+        "facts_total": 7,
+        "next_label_expected": false,
+        "next_label_present": false,
+        "next_label_correct": true
+      }
+    },
+    {
+      "id": "queue-choice",
+      "title": "Recommendation with measurable limits",
+      "arm": "skill",
+      "output": "Use a PostgreSQL-backed queue for this small service now.\n\nPostgreSQL is already running, so this avoids adding another service. It is sufficient for the current load.\n\nRedis can provide lower latency and more queue features, but it adds operational work.\n\nReconsider Redis if either measured queue delay exceeds 500 ms or throughput exceeds 1,000 jobs per second.",
+      "usage": {
+        "input_tokens": 13721,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 77,
+        "reasoning_output_tokens": 0
+      },
+      "metrics": {
+        "words": 58,
+        "characters": 364,
+        "sentences": 5,
+        "sentences_over_20_words": 0,
+        "max_sentence_words": 18,
+        "jargon_hits": [
+          {
+            "term": "sufficient",
+            "simpler": "enough"
+          }
+        ],
+        "required_facts": [
+          {
+            "label": "PostgreSQL recommendation",
+            "passed": true
+          },
+          {
+            "label": "no new service",
+            "passed": true
+          },
+          {
+            "label": "current load",
+            "passed": true
+          },
+          {
+            "label": "Redis benefits",
+            "passed": true
+          },
+          {
+            "label": "operations cost",
+            "passed": true
+          },
+          {
+            "label": "500 ms limit",
+            "passed": true
+          },
+          {
+            "label": "1,000 jobs limit",
+            "passed": true
+          }
+        ],
+        "facts_kept": 7,
+        "facts_total": 7,
+        "next_label_expected": false,
+        "next_label_present": false,
+        "next_label_correct": true
+      }
+    }
+  ]
+}

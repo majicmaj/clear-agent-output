@@ -1,6 +1,6 @@
 {
   "name": "clear-agent-output",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Install a skill that makes AI agent replies short, clear, complete, and actionable.",
   "license": "MIT",
   "author": "majicmaj",
@@ -22,10 +22,18 @@
   },
   "files": [
     "bin",
+    "benchmark",
     "skill",
     "README.md",
+    "EXAMPLES.md",
+    "COMPARISON.md",
     "LICENSE"
   ],
+  "scripts": {
+    "benchmark": "node benchmark/run.js && node benchmark/render.js && node benchmark/check.js",
+    "benchmark:render": "node benchmark/render.js && node benchmark/check.js",
+    "test": "node --check bin/install.js && node --check benchmark/run.js && node --check benchmark/render.js && node --check benchmark/check.js && npm run benchmark:render"
+  },
   "engines": {
     "node": ">=18"
   }
