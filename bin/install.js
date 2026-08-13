@@ -12,8 +12,8 @@ if (args.has("--help") || args.has("-h")) {
   console.log(`Install Clear Agent Output.
 
 Usage:
-  npx clear-agent-output            Install for your user
-  npx clear-agent-output --project  Install in the current project
+  npx clear-agent-output            Install for your user agents
+  npx clear-agent-output --project  Install for this project's agents
   npx clear-agent-output --force    Replace an existing copy`);
   process.exit(0);
 }
@@ -24,16 +24,30 @@ if (unknown.length) {
 }
 
 const root = args.has("--project") ? process.cwd() : os.homedir();
-const target = path.join(root, ".agents", "skills", "clear-agent-output");
+const targets = [
+  path.join(root, ".agents", "skills", "clear-agent-output"),
+  path.join(root, ".claude", "skills", "clear-agent-output"),
+];
 const source = path.join(__dirname, "..", "skill");
+const force = args.has("--force");
+let installed = 0;
 
-if (fs.existsSync(target) && !args.has("--force")) {
-  console.error(`Already installed: ${target}\nRun again with --force to replace it.`);
+for (const target of targets) {
+  if (fs.existsSync(target) && !force) {
+    console.log(`Already installed: ${target}`);
+    continue;
+  }
+
+  if (force) fs.rmSync(target, { recursive: true, force: true });
+  fs.mkdirSync(path.dirname(target), { recursive: true });
+  fs.cpSync(source, target, { recursive: true });
+  console.log(`Installed: ${target}`);
+  installed += 1;
+}
+
+if (!installed) {
+  console.error("Run again with --force to replace the installed copies.");
   process.exit(1);
 }
 
-fs.mkdirSync(path.dirname(target), { recursive: true });
-fs.cpSync(source, target, { recursive: true, force: args.has("--force") });
-
-console.log(`Installed Clear Agent Output: ${target}`);
-console.log("Restart your agent, then use $clear-agent-output.");
+console.log("Restart your agent. Use $clear-agent-output in Codex or /clear-agent-output in Claude Code.");

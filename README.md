@@ -8,13 +8,16 @@ Make AI agent replies short, clear, complete, and easy to act on.
 npx clear-agent-output
 ```
 
-Restart your agent. The skill can activate automatically, or you can use:
+This installs the skill for Codex and Claude Code. It also works with Cursor, Gemini CLI, GitHub Copilot, and OpenCode.
+
+Restart your agent. The skill activates automatically when relevant. You can also invoke it directly:
 
 ```text
-$clear-agent-output
+Codex:       $clear-agent-output
+Claude Code: /clear-agent-output
 ```
 
-To install it only in the current project:
+To install it only in the current project, for the same agents:
 
 ```sh
 npx clear-agent-output --project
