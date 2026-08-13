@@ -35,8 +35,9 @@
     "LICENSE"
   ],
   "scripts": {
-    "benchmark": "node benchmark/run.js && node benchmark/render.js && node benchmark/check.js",
-    "benchmark:render": "node benchmark/render.js && node benchmark/check.js",
+    "benchmark": "node benchmark/run.js --render",
+    "benchmark:claude": "node benchmark/run.js --provider=claude --render",
+    "benchmark:render": "node benchmark/render.js && node benchmark/check.js && node benchmark/check.js benchmark/results-claude-opus.json",
     "test": "node --test test/*.test.js && node --check benchmark/run.js && node --check benchmark/render.js && node --check benchmark/check.js && npm run benchmark:render"
   },
   "engines": {

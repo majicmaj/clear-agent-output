@@ -31,6 +31,7 @@ Run the benchmark again:
 
 ```sh
 npm run benchmark -- --model=gpt-5.6-terra
+npm run benchmark:claude -- --model=opus
 ```
 
 Inspired by [Caveman](https://github.com/JuliusBrussee/caveman), [Ponytail](https://github.com/DietrichGebert/ponytail), [i-have-adhd](https://github.com/ayghri/i-have-adhd), and [ASD-STE100](https://www.asd-ste100.org/).

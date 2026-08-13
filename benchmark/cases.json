@@ -5,11 +5,11 @@
     "prompt": "Turn this internal note into a user-facing agent reply. Preserve every important fact.\n\nThe cache-key defect was remediated in src/cache.ts and src/api.ts. All 42 unit tests completed successfully, and the linting process also completed successfully. The browser-based verification could not be executed because Chrome is not installed. No action is required from the user.",
     "required": [
       { "label": "both files", "pattern": "src/cache\\.ts[\\s\\S]*src/api\\.ts|src/api\\.ts[\\s\\S]*src/cache\\.ts" },
-      { "label": "42 tests passed", "pattern": "42[\\s\\S]{0,40}(passed|successful|successfully)" },
-      { "label": "lint passed", "pattern": "lint(?:ing)?[\\s\\S]{0,50}(passed|successful|successfully|completed)" },
-      { "label": "browser check skipped", "pattern": "browser[\\s\\S]{0,50}(not run|did not run|could not|skipped|unable)" },
-      { "label": "Chrome cause", "pattern": "Chrome[\\s\\S]{0,40}(not installed|unavailable|missing)" },
-      { "label": "no user action", "pattern": "no (user )?action|nothing (else )?(is )?required" }
+      { "label": "42 tests passed", "pattern": "42[\\s\\S]{0,40}(pass(?:ed|es)?|successful|successfully)" },
+      { "label": "lint passed", "pattern": "lint(?:ing)?[\\s\\S]{0,50}(pass(?:ed|es)?|successful|successfully|completed)" },
+      { "label": "browser check skipped", "pattern": "browser[\\s\\S]{0,50}(not run|did not run|didn't run|could not|skipped|unable)" },
+      { "label": "Chrome cause", "pattern": "Chrome[\\s\\S]{0,40}(not installed|isn't installed|unavailable|missing)" },
+      { "label": "no user action", "pattern": "no (user )?action|nothing (else )?(is )?(required|needed)|nothing needed from you" }
     ],
     "expect_next": false
   },
@@ -33,7 +33,7 @@
     "prompt": "Turn this decision note into a user-facing recommendation. Preserve every important fact.\n\nFor this small service, utilize a PostgreSQL-backed queue at the present time. PostgreSQL is already in operation, so this choice eliminates the necessity for an additional service and is sufficient for the current load. Redis can facilitate lower latency and additional queue features, but it introduces more operational work. Reconsider Redis if measured queue delay exceeds 500 ms or throughput exceeds 1,000 jobs per second.",
     "required": [
       { "label": "PostgreSQL recommendation", "pattern": "(use|choose|recommend)[\\s\\S]{0,40}PostgreSQL-backed (job )?queue" },
-      { "label": "no new service", "pattern": "avoid[\\s\\S]{0,30}(new|another|additional) service|eliminates[\\s\\S]{0,30}(new|another|additional) service" },
+      { "label": "no new service", "pattern": "avoid[\\s\\S]{0,30}(new|another|additional) service|eliminates[\\s\\S]{0,30}(new|another|additional) service|adds? no (new|another|additional) service" },
       { "label": "current load", "pattern": "current load" },
       { "label": "Redis benefits", "pattern": "Redis[\\s\\S]{0,80}lower latency[\\s\\S]{0,60}(more|additional) queue features" },
       { "label": "operations cost", "pattern": "Redis[\\s\\S]{0,140}(operations|operational) (work|overhead|cost)" },

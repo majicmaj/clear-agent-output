@@ -4,7 +4,9 @@ const fs = require("node:fs");
 const path = require("node:path");
 
 const root = path.resolve(__dirname, "..");
-const data = JSON.parse(fs.readFileSync(path.join(__dirname, "results.json"), "utf8"));
+const inputArg = process.argv.slice(2).find((arg) => !arg.startsWith("--"));
+const dataPath = path.resolve(root, inputArg || "benchmark/results.json");
+const data = JSON.parse(fs.readFileSync(dataPath, "utf8"));
 const cases = JSON.parse(fs.readFileSync(path.join(__dirname, "cases.json"), "utf8"));
 const failures = [];
 
@@ -35,4 +37,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log(`Benchmark results valid: ${data.results.length} runs on ${data.model}`);
+console.log(`Benchmark results valid: ${data.results.length} runs on ${data.provider || "codex"}/${data.model}`);
